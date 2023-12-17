@@ -1,0 +1,12 @@
+# Tempo de expiração em (horas)
+timeExpired: 24
+
+# TP E Money
+trainingPoint: 10000
+money: 100
+
+# ID do Fragmento e a quantidade de fragmento pelo tempo
+fragmentsID: 89
+fragmentsTitle: §eFragmento
+fragmentsLore: §eFragmento Diário
+fragmentsQnt: 1

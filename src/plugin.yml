@@ -1,0 +1,14 @@
+name: RewardsEden
+version: 1.0
+author:
+  - Nykoo
+description: §aPlugin exclusivo de DBC Eden
+website: https://redeeden.com
+main: com.redeeden.RewardEden
+commands:
+  reward:
+    aliases:
+      - rewards
+      - recompensa
+      - recompensas
+    description: §aAbre o menu das recompensas.

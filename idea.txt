@@ -1,0 +1,9 @@
+eu quero um comando /recompensa que da pra acessar de 24 em 24 hrs, ai lá vai da tp, money e
+fragmentos diarios que serão usados para trocar no /spawn por espadas, roupas etc
+ai no /recompensa abre um menu, ai reseta a cada 30 dias
+
+
+Vai abrir o GUI e aparecer duas opções:
+ - Resgatar e Não Resgatar
+  - Resgatando o player não consegue mais abrir o GUI
+  - Envia mensagem falando quanto tempo falta para pegar novamente.
