@@ -4,11 +4,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import net.minecraft.server.v1_7_R4.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,8 +25,7 @@ import com.redeeden.utils.Api;
 import com.redeeden.utils.ENV;
 
 public class Reward implements CommandExecutor, Listener {
-    private final Map<Player, Long> lastClaimTimes = new HashMap<>();
-    private final int timeExpired = Api.getConfig("Config.yml", "RewardsEden", "timeExpired");
+    private final int timeExpired = Api.getConfig("config.yml", "RewardsEden", "timeExpired");
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     @Override
@@ -44,14 +40,24 @@ public class Reward implements CommandExecutor, Listener {
         LocalDateTime now = LocalDateTime.now();
 
         String timeExpiredString = Api.getConfigs("data.yml", "RewardsEden", player.getName());
-        LocalDateTime timeExpired = LocalDateTime.parse(timeExpiredString, formatter);
+        LocalDateTime timeExpiredPlayer = LocalDateTime.parse(timeExpiredString, formatter);
 
-        Duration duracao = Duration.between(timeExpired, now);
+        Duration duration = Duration.between(timeExpiredPlayer, now);
 
-        if (duracao.toMinutes() >= 1){
-            player.sendMessage(ENV.PREFIX + ChatColor.RED + "ja passou 1 minuto");
-        }else {
-            player.sendMessage(ENV.PREFIX + ChatColor.RED + "não passou!");
+        if (duration.toHours() < timeExpired){
+            player.sendMessage(ENV.PREFIX + ChatColor.RED + "Você tem que esperar 24h");
+
+            Duration totalDuration = Duration.ofHours(24);
+            Duration remainingDuration = totalDuration.minus(duration);
+
+            long totalSeconds = remainingDuration.getSeconds();
+            long hour = totalSeconds / 3600;
+            long minute = (totalSeconds % 3600) / 60;
+            long seconds = totalSeconds % 60;
+
+            String timeFormatted = String.format("%02d:%02d:%02d", hour, minute, seconds);
+
+            player.sendMessage(ENV.PREFIX + ChatColor.RED + "Faltam exatamente " + timeFormatted + " para resgatar a recompensa novamente.");
             return true;
         }
 
@@ -85,14 +91,14 @@ public class Reward implements CommandExecutor, Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        Integer tp = Api.getConfig("Config.yml", "RewardsEden", "tp");
-        Integer money = Api.getConfig("Config.yml", "RewardsEden", "money");
+        Integer tp = Api.getConfig("config.yml", "RewardsEden", "tp");
+        Integer money = Api.getConfig("config.yml", "RewardsEden", "money");
 
-        String fragmentsTitle = Api.getConfigs("Config.yml", "RewardsEden", "fragmentsTitle");
-        String fragmentsLore = Api.getConfigs("Config.yml", "RewardsEden", "fragmentsLore");
+        String fragmentsTitle = Api.getConfigs("config.yml", "RewardsEden", "fragmentsTitle");
+        String fragmentsLore = Api.getConfigs("config.yml", "RewardsEden", "fragmentsLore");
         List<String> loreList = new ArrayList<>();
-        Integer fragmentsID = Api.getConfig("Config.yml", "RewardsEden", "fragmentsID");
-        Integer fragmentsQnt = Api.getConfig("Config.yml", "RewardsEden", "fragmentsQnt");
+        Integer fragmentsID = Api.getConfig("config.yml", "RewardsEden", "fragmentsID");
+        Integer fragmentsQnt = Api.getConfig("config.yml", "RewardsEden", "fragmentsQnt");
 
         if (e.getInventory().getTitle().equalsIgnoreCase("§6Recompensas")) {
             if (e.getCurrentItem().hasItemMeta()) {
@@ -103,16 +109,15 @@ public class Reward implements CommandExecutor, Listener {
 
                     ItemStack fragmentsItem = new ItemStack(Material.getMaterial(fragmentsID));
                     ItemMeta fragmentsMeta = fragmentsItem.getItemMeta();
-
-                    fragmentsMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', fragmentsTitle));
-                    loreList.add(ChatColor.translateAlternateColorCodes('&', fragmentsLore));
+                    fragmentsMeta.setDisplayName(fragmentsTitle);
+                    loreList.add(fragmentsLore);
                     fragmentsMeta.setLore(loreList);
 
                     fragmentsItem.setItemMeta(fragmentsMeta);
                     fragmentsItem.setAmount(fragmentsQnt);
                     p.getInventory().addItem(fragmentsItem);
 
-                    Api.setConfig("data.yml", "RewardsEden", p.getName(), LocalDateTime.now().toString());
+                    Api.setConfig("data.yml", "RewardsEden", p.getName(), LocalDateTime.now().format(formatter));
 
                     p.closeInventory();
                 } else if (nome.equalsIgnoreCase(ChatColor.DARK_RED + "Recusar")) {

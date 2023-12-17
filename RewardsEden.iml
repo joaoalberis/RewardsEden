@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="craftbukkit-1.7.10-R0.1-20140808.005431-8" level="project" />
+    <orderEntry type="library" name="craftbukkit-1.7.10-R0.1-20140808.005431-81" level="project" />
   </component>
 </module>

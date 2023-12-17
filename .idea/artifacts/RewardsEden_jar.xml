@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="RewardsEden:jar">
-    <output-path>$PROJECT_DIR$/../../../Área de Trabalho/Server/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../local/plugins</output-path>
     <root id="archive" name="RewardsEden.jar">
       <element id="module-output" name="RewardsEden" />
     </root>

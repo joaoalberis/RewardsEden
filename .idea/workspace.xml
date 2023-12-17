@@ -10,20 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4955e85-d737-4863-8ffe-6494e0b7ca74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RewardsEden_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/craftbukkit_1_7_10_R0_1_20140808_005431_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RewardsEden.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/redeeden/RewardEden.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/redeeden/commands/Reward.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/redeeden/utils/Api.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/redeeden/utils/ENV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RewardsEden_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/RewardsEden_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RewardsEden.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RewardsEden.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/redeeden/commands/Reward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/redeeden/commands/Reward.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +46,22 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/DEV/Libs/craftbukkit-1.7.10-R0.1-20140808.005431-8.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/mrjoao/Área de trabalho/local/plugins",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-1.8.0_392-corretto-1.8.0_392-249ae16d76d6-a9d69ced" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
