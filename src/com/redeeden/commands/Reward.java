@@ -45,9 +45,8 @@ public class Reward implements CommandExecutor, Listener {
         Duration duration = Duration.between(timeExpiredPlayer, now);
 
         if (duration.toHours() < timeExpired){
-            player.sendMessage(ENV.PREFIX + ChatColor.RED + "Você tem que esperar 24h");
 
-            Duration totalDuration = Duration.ofHours(24);
+            Duration totalDuration = Duration.ofHours(timeExpired);
             Duration remainingDuration = totalDuration.minus(duration);
 
             long totalSeconds = remainingDuration.getSeconds();
